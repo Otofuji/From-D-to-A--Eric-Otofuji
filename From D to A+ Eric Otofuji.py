@@ -24,17 +24,19 @@ def random_row(board):
 def random_col(board):
     return randint(0, len(board)-1)
 
-guess_row = int(input("Escolha uma linha: "))
-guess_col = int(input("Escolha uma coluna: "))
+for turn in range(4):
+	print("Jogada: ",turn+1)
+	guess_row = int(input("Escolha uma linha: "))
+	guess_col = int(input("Escolha uma coluna: "))
 
-if guess_row == ship_row and guess_col == ship_col:
-    print("Parabéns! Você afundou um navio!")
-else:
-    if (guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
-        print "Você está mirando no oceano errado! Volte para o oceano certo! Coordenadas de 0 a 4"
-    elif(board[guess_row][guess_col] == "X"):
-        print "Você gosta de enfeitar o oceano. não? E no mesmo lugar..."
-    else:
-        print "Sua munição certamente enfeitará mais o oceano, pois acertar navio que é bom nada..."
-        board[guess_row][guess_col] = "X"
-    print_board(board)
+	if guess_row == ship_row and guess_col == ship_col:
+	    print("Parabéns! Você afundou um navio!")
+	else:
+	    if (guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
+	        print "Você está mirando no oceano errado! Volte para o oceano certo! Coordenadas de 0 a 4"
+	    elif(board[guess_row][guess_col] == "X"):
+	        print "Você gosta de enfeitar o oceano. não? E no mesmo lugar..."
+	    else:
+	        print "Sua munição certamente enfeitará mais o oceano, pois acertar navio que é bom nada..."
+	        board[guess_row][guess_col] = "X"
+	    print_board(board)
