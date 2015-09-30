@@ -26,3 +26,6 @@ def random_col(board):
 guess_row = int(input("Escolha uma linha: "))
 guess_col = int(input("Escolha uma coluna: "))
 
+if guess_row == ship_row and guess_col == ship_col:
+    print("Parabéns! Você afundou um navio!")
+
