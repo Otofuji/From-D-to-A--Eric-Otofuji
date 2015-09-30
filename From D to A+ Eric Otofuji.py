@@ -1,5 +1,12 @@
-def firstcommit():
-	return "Hello, world! This is it: the time to move from D to A+ rubric!"
+# -*- coding: utf-8 -*-
+"""
+Insper Instituto de Ensino e Pesquisa
+Faculdade de Engenharia
+Eric Fernando Otofuji Abrantes
+Projeto parte da recuperação de Design de Software
+"""
 
-print("firstcommit")
+board = []
 
+for i in range(5):
+    board.append(["O"]*5)
