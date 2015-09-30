@@ -4,6 +4,7 @@ Insper Instituto de Ensino e Pesquisa
 Faculdade de Engenharia
 Eric Fernando Otofuji Abrantes
 Projeto parte da recuperação de Design de Software
+Instruído pelo curso de Python do CodeCademy
 """
 
 board = []
@@ -28,6 +29,9 @@ guess_col = int(input("Escolha uma coluna: "))
 
 if guess_row == ship_row and guess_col == ship_col:
     print("Parabéns! Você afundou um navio!")
+elif guess_row != range(5) or guess_col != range(5):
+    print("Você está mirando no oceano errado! Volte para o oceano certo! Coordenadas de 0 a 4")
 else:
-    print("Sua munição desperdiçada vai enfeitar os oceanos...")
+    print("You missed my battleship!")
+    board[guess_row][guess_col] = "X"
 
