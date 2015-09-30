@@ -22,3 +22,7 @@ def random_row(board):
 
 def random_col(board):
     return randint(0, len(board)-1)
+
+guess_row = int(input("Escolha uma linha: "))
+guess_col = int(input("Escolha uma coluna: "))
+
