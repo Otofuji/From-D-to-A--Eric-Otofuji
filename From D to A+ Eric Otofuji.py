@@ -50,7 +50,7 @@ def shippos(ship):
 
 print(shippos(ships[1]))
 ocean_com_bug = [(shippos(ships[0])),(shippos(ships[1])),(shippos(ships[2]))]
-ocean = [(3,1),(4,0),(4,1),(3,1),(4,2),(3,2)]
+ocean = [(3,1),(4,0),(4,1),(1,2),(3,2),(2,2)]
 ocean_row,ocean_col = zip(*ocean)
 
 print(ocean_com_bug)
@@ -69,34 +69,42 @@ score = 0
 for turn in range(10):
     guess_row = int(input("\nEscolha uma linha: "))
     guess_col = int(input("\nEscolha uma coluna: "))
-    
-    if score >9:
-        break
+ 
+    elif(board[guess_row][guess_col] == "W"):
+        print ("\n\n\nAhhhh, malandro! Acha que atirando onde já atirou e já acertou vai fazer ganhar o jogo?\nNananinanão! Tente de novo!\nVocê foi penalizado perdendo uma rodada que poderia estar usando de forma mais útil.")
     elif guess_row == ocean_row[0] and guess_col == ocean_col[0]:
         board[guess_row][guess_col] = "W"
-        print("\nParabéns! Você destruiu o submarino! Três pontos!")
+        print("\n\n\nParabéns! Você destruiu o submarino! Três pontos!")
         score+=3
+        if score >=9:
+            break
     elif guess_row == ocean_row[1] and guess_col == ocean_col[1]:
         board[guess_row][guess_col] = "W"
-        print("\nParabéns! Você atingiu o navio nuclear, que tem duas partes! Dois pontos por este tiro!")
+        print("\n\n\nParabéns! Você atingiu o navio nuclear, que tem duas partes! Dois pontos por este tiro!")
         score+=2
+        if score >=9:
+            break
     elif guess_row == ocean_row[2] and guess_col == ocean_col[2]:
         board[guess_row][guess_col] = "W"
-        print("\nParabéns! Você atingiu o navio nuclear, que tem duas partes! Um ponto por este tiro!")
+        print("\n\n\nParabéns! Você atingiu o navio nuclear, que tem duas partes! Um ponto por este tiro!")
         score+=1
+        if score >=9:
+            break
     elif guess_row == ocean_row[3] and guess_col == ocean_col[3] or guess_row == ocean_row[4] and guess_col == ocean_col[4] or guess_row == ocean_row[5] and guess_col == ocean_col[5]:
         board[guess_row][guess_col] = "W"
-        print("\nParabéns! Você atingiu o porta-aviões, que tem três partes! Um ponto por este tiro!")
+        print("\n\n\nParabéns! Você atingiu o porta-aviões, que tem três partes! Um ponto por este tiro!")
         score+=1
+        if score >=9:
+            break
     else:
         if (guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
-            print ("\nParabéns! Você não só errou o meu encouraçado como também errou o oceano! Você certamente é um gênio da mira...")
+            print ("\n\n\nParabéns! Você não só errou o meu encouraçado como também errou o oceano! Você certamente é um gênio da mira...")
         
         elif(board[guess_row][guess_col] == "X"):
-            print ("\nVocê já atirou aqui e já errou. Por que insistir no mesmo erro? Parabéns!")
+            print ("\n\n\nVocê já atirou aqui e já errou. Por que insistir no mesmo erro? Parabéns!")
         
         else:
-            print ("\nParabéns! Você fez umas águas saírem voando. Encouraçado que é bom, nada... Você errou o tiro!")
+            print ("\nP\n\narabéns! Você fez umas águas saírem voando. Encouraçado que é bom, nada... Você errou o tiro!")
             board[guess_row][guess_col] = "X"
         
     print ("\nRodada " + str(turn+1) + " de 10.\n")
